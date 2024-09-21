@@ -1,0 +1,21 @@
+PORT: 11002
+
+DATABASE:
+  MYSQL:
+    PORT:
+    HOST:
+    USER:
+    PASS:
+    NAME:
+
+  POSTGRES:
+
+  NEO4J:
+    URI: bolt://localhost:7687
+    NAME: recommendation-engine
+    USER: test
+    PASS: test123@
+
+  MONGODB:
+
+  REDIS:
