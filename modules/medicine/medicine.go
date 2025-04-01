@@ -1,11 +1,14 @@
 package medicine
 
-import dto "github.com/rohanchauhan02/recommendation-engine/dto/medicine"
-
-type Usecase interface {
-	AddMedicine(req *dto.CreateMedicineRequest) error
+type Medicine struct {
+	ID          int64
+	Name        string
+	Description string
 }
 
-type Repository interface {
-	AddMedicine(req *dto.CreateMedicineRequest) error
+func (m *Medicine) AddMedicine() error {
+	if m.Name == "" || m.Description == "" {
+		return errors.New("medicine name and description cannot be empty")
+	}
+	return nil
 }
