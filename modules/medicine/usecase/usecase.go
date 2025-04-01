@@ -1,20 +1,20 @@
 package usecase
 
 import (
-	dto "github.com/rohanchauhan02/recommendation-engine/dto/medicine"
-	"github.com/rohanchauhan02/recommendation-engine/modules/medicine"
+	"context"
+	"modules/medicine"
 )
 
-type usecase struct {
-	repository medicine.Repository
+type MedicineUsecase struct {
+	medicineRepo medicine.Repository
 }
 
-func NewMedicineUsecase(repository *medicine.Repository) medicine.Usecase {
-	return &usecase{
-		repository: *repository,
+func NewMedicineUsecase(mr medicine.Repository) *MedicineUsecase {
+	return &MedicineUsecase{
+		medicineRepo: mr,
 	}
 }
 
-func (u *usecase) AddMedicine(req *dto.CreateMedicineRequest) error {
-	return u.repository.AddMedicine(req)
+func (mu *MedicineUsecase) AddMedicine(ctx context.Context, m *medicine.Medicine) error {
+	return mu.medicineRepo.AddMedicine(ctx, m)
 }
